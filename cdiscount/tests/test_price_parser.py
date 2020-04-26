@@ -28,3 +28,6 @@ class PriceParserTest(unittest.TestCase):
         sku = [1, 2, 3]
         result = parse_price(sku)
         self.assertFalse(result)
+
+if __name__ == '__main__':
+    unittest.main()
