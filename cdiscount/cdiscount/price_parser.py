@@ -25,7 +25,9 @@ def parse_price(sku: str) -> Union[float, bool]:
         return False
 
     soup = BeautifulSoup(request.text, "html.parser")
-    price_box = soup.find_all("span", {"class": "fpPrice price jsMainPrice jsProductPrice hideFromPro"})
+    price_box = soup.find_all("span", {
+        "class": "fpPrice price jsMainPrice jsProductPrice hideFromPro"
+        })
 
     if (not len(price_box)):
         return False
