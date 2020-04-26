@@ -19,3 +19,11 @@ Parse a Cdiscount product price.
 ### Now visist
 
 `http://localhost:8080`
+
+## Usage
+
+Hit the `/` endpoint with a query param `sku` coresponding to a Cdiscount product reference.
+
+### Example
+
+`http://localhost:8080/?sku=pan5025232500635`
