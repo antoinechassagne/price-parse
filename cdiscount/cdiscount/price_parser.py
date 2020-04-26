@@ -2,16 +2,18 @@ from typing import Union
 import requests
 from bs4 import BeautifulSoup
 
-""" 
-This function extracts the price from a Cdiscount product page. 
-    
-Parameters: 
+"""
+This function extracts the price from a Cdiscount product page.
+
+Parameters:
     sku (str): The product reference
-    
-Returns: 
+
+Returns:
     float: The product price
     bool: False if something went wrong
 """
+
+
 def parse_price(sku: str) -> Union[float, bool]:
     if not isinstance(sku, str):
         return False
@@ -23,11 +25,10 @@ def parse_price(sku: str) -> Union[float, bool]:
         return False
 
     soup = BeautifulSoup(request.text, "html.parser")
-    price_box = soup.find_all("span", {"class":"fpPrice price jsMainPrice jsProductPrice hideFromPro"})
+    price_box = soup.find_all("span", {"class": "fpPrice price jsMainPrice jsProductPrice hideFromPro"})
 
     if (not len(price_box)):
         return False
-    
+
     price = float(price_box[0]["content"])
     return price
-  
