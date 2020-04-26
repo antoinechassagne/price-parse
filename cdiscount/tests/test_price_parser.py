@@ -1,9 +1,11 @@
 import unittest
 from cdiscount.price_parser import parse_price
 
+
 class PriceParserTest(unittest.TestCase):
+
     """Test cases for price_parser module"""
-    
+
     """Test cases for price_parser.parse_price function"""
     def test_parse_price(self):
         """Should return the price as flaot for a good sku given"""
@@ -20,11 +22,11 @@ class PriceParserTest(unittest.TestCase):
         sku = False
         result = parse_price(sku)
         self.assertFalse(result)
-        
+
         sku = True
         result = parse_price(sku)
         self.assertFalse(result)
- 
+
         sku = [1, 2, 3]
         result = parse_price(sku)
         self.assertFalse(result)
